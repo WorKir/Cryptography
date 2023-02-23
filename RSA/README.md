@@ -1,29 +1,29 @@
 # RSA
 
-## Мета та основні завдання роботи
-Ознайомлення з тестами перевірки чисел на простоту і методами генерації ключів для асиметричної криптосистеми типу RSA; практичне ознайомлення з системою захисту інформації на основі криптосистеми RSA, організація з використанням цієї системи засекреченого зв’язку й електронного підпису, вивчення протоколу розсилання ключів.
+## Purpose and main tasks of the work
+Acquaintance with tests for verifying numbers for simplicity and key generation methods for an asymmetric cryptosystem of the RSA type; practical familiarization with the information protection system based on the RSA cryptosystem, organization using this system of classified communication and electronic signature, study of the key distribution protocol.
 
-## Задача 
-Реалізувати механізми перевірки чисел на простоту, за допомогою їх знайти пари простих чисел та реалізувати алгоритм RSA. Здійснити обмін ключами по протоколу RSA/
+## Task
+Implement mechanisms for checking numbers for simplicity, using them to find pairs of prime numbers and implement the RSA algorithm. Exchange keys using the RSA protocol/
 
-## Хід роботи
+## Progress
 
-- Реалізація та тетстування функцій на знаходження простих чисел
-- Реалізація користувацього класу з методами, що здійснюють шифрування алгоритмом RSA.
-- Реалізація високорівневих функцій для роботи з сайтом
+- Implementation and testing of functions for finding prime numbers
+- Implementation of a custom class with methods that perform encryption with the RSA algorithm.
+- Implementation of high-level functions for working with the site
 
-Труднощі, що виникли були пов’язані з алгоритмом пошуку простих чисел та з під’єднанням до сайту.
-Розв’язання труднощів здійснено методом аналізу та тестування кожної функції окремо від інших.
+The difficulties that arose were related to the algorithm for finding prime numbers and connecting to the site.
+Difficulties are solved by analyzing and testing each function separately from the others.
 
-## Опис кроків протоколу конфіденційного розсилання ключів
-Абонент А(d, n, e) формує повідомлення (k, S) і відправляє його B(d1, n1, e1), де
+## Description of the steps of the confidential key distribution protocol
+Subscriber A(d, n, e) forms a message (k, S) and sends it to B(d1, n1, e1), where
 k1 = k^e1 mod n1
 S1 = S^e1 mod n1
 S = k^d mod n
 
-Абонент В за допомогою свого секретного ключа d1 знаходить (конфіденційність):
+Subscriber B finds (confidentiality) with the help of his secret key d1:
 k = k1^d1 mod n1
 S = S1^d1 mod n1
 
-І за допомогою відкритого ключа е абонента А перевіряє підпис А (автентифікація):
+And with the help of the public key e of the subscriber A checks the signature of A (authentication):
 k = S^e mod n
